@@ -108,9 +108,10 @@ const AppNavigation:React.FC = () => {
               },
             }}
 		      >
-            БФ &ldquo;Янгол ЗСУ&rdquo;
+            БО БФ &ldquo;Янгол ЗСУ&rdquo;
           </Typography>
           {/* Social Media Icons */}
+	<Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'none', lg: 'flex' } }}>
           <Link href="https://t.me/angel_zsu" rel="noopener noreferrer" target="_blank" passHref>
             <IconButton color="inherit" size='medium'>
               <TelegramIcon sx={{ color: '#1DA1F2' }} />
@@ -126,6 +127,7 @@ const AppNavigation:React.FC = () => {
               <InstagramIcon sx={{ color: '#E1306C' }} />
             </IconButton>
           </Link>
+	</Box>
 		      {/* Menu User Settings */}
 		      <Box sx={{ flexGrow: 0, marginLeft: 'auto' }}>
             <Tooltip title="Open settings">
