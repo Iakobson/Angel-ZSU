@@ -1,0 +1,9 @@
+/* @/app/MainPage.css */
+.main {
+  color: darkgreen;
+}
+
+.linkHighlight {
+  color: #4800ff;
+  font-weight: bold;
+}
