@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 import MainTypowriter from '@/views/Home/MainTypowriter';
 import mainPic from '../../public/images/angels.jpg';
+import MainInfo from '@/views/Home/MainInfo';
 
 export default function Home() {
   return (  
@@ -49,9 +50,14 @@ export default function Home() {
             <Typography paragraph>
               Прохання уважно перевіряти <Link href="/fund/donate"><span className={styles.linkHighlight}>реквізити</span></Link> при перерахунку коштів.
             </Typography>
-            <Typography paragraph sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+            <Typography paragraph 
+	      sx={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'darkorange' }}
+	    >
               Разом до перемоги!
             </Typography>
+		  </Grid>
+	      <Grid item mb={5} justifyContent="center" alignItems="center">
+		    <MainInfo />
 		  </Grid>
       </Grid>
   );
