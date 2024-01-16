@@ -1,13 +1,13 @@
 {
   "name": "angel-zsu",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "author": "SKindij",
   "description": "Website of the 'Angel of the Armed Forces of Ukraine' charity fund",
   "repository": {
     "type": "git",
     "url": "https://github.com/SKindij/Angel-ZSU"
-  },  
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -20,9 +20,11 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.20",
+    "framer-motion": "^10.18.0",
     "next": "14.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
