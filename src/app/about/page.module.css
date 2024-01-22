@@ -1,0 +1,11 @@
+/* @/app/about/AboutPage.css */
+.about-section {
+  background-image: url('../../../public/images/back-about-angels.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white; /* Колір тексту для кращого контрасту із фоном */
+  padding: 20px; /* Додайте відступи за потребою */
+  /* Додайте інші стилі за бажанням */
+}
+
+  
