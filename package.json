@@ -1,6 +1,6 @@
 {
   "name": "angel-zsu",
-  "version": "0.0.5",
+  "version": "0.2.1",
   "private": true,
   "author": "SKindij",
   "description": "Website of the 'Angel of the Armed Forces of Ukraine' charity fund",
@@ -20,6 +20,8 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.20",
+    "@mui/material-nextjs": "^5.15.5",
+    "@vercel/postgres": "^0.5.1",
     "framer-motion": "^10.18.0",
     "next": "14.0.3",
     "react": "18.2.0",
