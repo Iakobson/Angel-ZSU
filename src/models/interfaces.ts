@@ -23,6 +23,16 @@ export interface IOurAward {
   body:string;
 };
 
-
+export interface ITeamMember {
+  id:number;
+  name:string;
+  photo?:string;
+  professional?:string;
+  description?:string;
+  territory?:{
+    city:string;
+    logo:string;
+  };
+};
 
 
