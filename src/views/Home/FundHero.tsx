@@ -43,7 +43,7 @@ const FundHero = () => {
             {/* Ukrainian Trident */}
             <Box
               sx={{ position: 'absolute', zIndex: 1,
-                bottom: { xs: -50, md: 30 }, left: { xs: 50, md: -250 },
+                bottom: { xs: -56, md: 30 }, left: { xs: 50, md: -250 },
                 boxShadow: 1, borderRadius: 3,
                 px: 2,  py: 1.4, width: 280,
                 backgroundColor: 'background.paper',
