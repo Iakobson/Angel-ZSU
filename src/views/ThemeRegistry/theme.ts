@@ -40,7 +40,8 @@ const theme = createTheme({
     lostLavender: '#8E7F8E',
     fadedLilac: '#92A3BD',
     bakeryBox: '#F7F9F8',
-    polliwog: '#e3c71f'
+    polliwog: '#e3c71f',
+    sassyYellow: '#F0CC70'
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
