@@ -2,8 +2,8 @@
 import ThemeRegistry from '@/views/ThemeRegistry/ThemeRegistry';
 import './globals.css';
 import './react-slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 // MUI components
 import Box from '@mui/material/Box';
 // views (design) elements
