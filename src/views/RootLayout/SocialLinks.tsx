@@ -39,7 +39,7 @@ const socialMediaLinks:SocialLink[] = [
 
 const SocialLinkButton:React.FC<{ link:SocialLink }> = ({ link }) => (
   <Link href={link.href} rel="noopener noreferrer" target="_blank" passHref>
-    <IconButton
+    <IconButton aria-label={link.name}
       size="medium"
       sx={{
         marginRight: 2,
@@ -56,13 +56,9 @@ const HeaderSocialLinks = () => {
     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
       {socialMediaLinks.map(({ name, href, color, icon }, index) => (
         <Link key={name} href={href} rel="noopener noreferrer" target="_blank" passHref>
-          <IconButton
-            color="inherit"
-            size="medium"
-            sx={{
-              marginRight: 2,
-              '&:hover': { backgroundColor: 'secondary.main' },
-            }}
+          <IconButton aria-label={name}
+            color="inherit" size="medium"
+            sx={{ marginRight: 2, '&:hover': { backgroundColor:'secondary.main' } }}
           >
             {icon}
           </IconButton>
@@ -81,10 +77,15 @@ const FooterSocialLinks = () => {
         </Typography>
         {socialMediaLinks.map(({ name, href, color, icon }, index) => (
           <Link key={name} href={href} rel="noopener noreferrer" target="_blank" passHref>
-            <IconButton color="inherit" size="medium" sx={{ '&:hover': { backgroundColor: 'secondary.main' } }}>
-              {icon}
-            </IconButton>
-            {name}
+            <div style={{ display: 'flex', alignItems: 'center' }}> {/* Замініть на Box, якщо потрібно */}
+              <IconButton aria-label={name}
+			    color="inherit" size="medium" 
+				sx={{ '&:hover': { backgroundColor: 'secondary.main' } }}
+			  >
+                {icon}
+              </IconButton>
+              <span style={{ marginLeft: '4px' }}>{name}</span>
+            </div>
           </Link>
         ))}
       </Box>
