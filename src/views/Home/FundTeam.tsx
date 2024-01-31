@@ -26,8 +26,8 @@ interface SliderArrowArrow {
 const SliderArrow:FC<SliderArrowArrow> = (props) => {
   const { onClick, type, className } = props;
   return (
-    <IconButton className={className} disableRipple
-	  color="inherit" onClick={onClick}
+    <IconButton className={className} aria-label='flip through picture slides'
+	  disableRipple color="inherit" onClick={onClick}
       sx={{
 	    bottom: '-28px !important', left: 'unset !important',
         right: type === 'prev' ? '60px !important' : '0 !important',
