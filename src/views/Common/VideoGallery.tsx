@@ -1,4 +1,7 @@
 // @/views/Common/VideoGallery.tsx
+import { Suspense } from 'react';
+import { VideoCardSkeleton}  from '@/views/Common/Skeletons';
+
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -17,12 +20,23 @@ const VideoGallery:React.FC<VideoGalleryProps> = ({ videoUrls }) => {
       <Grid container rowSpacing={1} columnSpacing={{ xs:1, sm:2, md:3, lg:6 }}>
         {videoUrls.map((video) => (
           <Grid key={video.id} item xs={12} sm={6} md={4} lg={4} xl={4}>
-            <Card>
+            <Suspense fallback={<VideoCardSkeleton />}>
+			<Card>
+			  {/*
               <CardMedia title={`YouTube video ${video.title}`}
                 component="iframe" src={video.url}
                 width="100%" height="315"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen loading="lazy"
+              />
+			  */}
+			  <iframe
+                title={`YouTube video ${video.title}`}
+                src={video.url}
+                width="100%" height="315"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
               />
               <CardContent>
                 <Typography variant="body1">
@@ -30,6 +44,7 @@ const VideoGallery:React.FC<VideoGalleryProps> = ({ videoUrls }) => {
                 </Typography>
               </CardContent>
             </Card>
+			</Suspense>
           </Grid>
         ))}
       </Grid>
