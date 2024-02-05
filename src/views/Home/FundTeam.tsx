@@ -15,6 +15,7 @@ import IconArrowForward from '@mui/icons-material/ArrowForward';
 // views components
 import SectionHeader from '@/views/Common/SectionHeader';
 import TeamMember from '@/views/Home/team/TeamMember';
+import СandidateButton from '@/views/Home/team/СandidateButton';
 // info from the database
 import { ourMembersData } from '@/services/fund-common-data';
 
@@ -59,7 +60,7 @@ const FundTeam = () => {
     infinite: true, speed: 300, // autoplay: true,
     slidesToShow: matchMobileView ? 1 : 3, slidesToScroll: 1,
     prevArrow: <SliderArrow type="prev" />, nextArrow: <SliderArrow type="next" />,
-    dots: true, appendDots: (dots) => <StyledDots>{dots}</StyledDots>,
+    dots: !matchMobileView, appendDots: (dots) => <StyledDots>{dots}</StyledDots>,
     customPaging: () => (
       <Box sx={{ height:10, width:30, backgroundColor:'divider', display:'inline-block', borderRadius:4 }}/>
     ),
@@ -67,7 +68,7 @@ const FundTeam = () => {
 
   return (
     <Box id="fund-team"
-	    sx={{ pt:1, pb:{xs:6, md:8}, backgroundColor:'background.paper' }}
+	    sx={{ pt:1, pb:{xs:4, md:6}, backgroundColor:'background.paper' }}
 	  >
       <Container maxWidth="lg">
 
@@ -82,8 +83,14 @@ const FundTeam = () => {
             <TeamMember key={String(member.id)} member={member} />
           ))}
         </Slider>
+		
+		
 
       </Container>
+	  
+	  {/* invitation to join the community */}
+		<СandidateButton />
+	  
     </Box>
   );
 };
