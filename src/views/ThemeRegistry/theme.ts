@@ -2,8 +2,8 @@
 'use client';
 import { Roboto } from 'next/font/google';
 import { createTheme, Palette, Theme } from '@mui/material/styles';
-import { 
-  indigo, amber, 
+import {
+  indigo, amber,
   yellow, blue, blueGrey
 } from '@mui/material/colors';
 
@@ -39,10 +39,10 @@ const theme = createTheme({
       default: indigo[900],
       paper: blue[900],
     },
-	text: {
+    text: {
 	  primary: '#F7F9F8',
 	  secondary: '#F7F9F8',
-	},
+    },
     customBackground: yellow[300],
     lostLavender: '#8E7F8E',
     fadedLilac: '#92A3BD',
