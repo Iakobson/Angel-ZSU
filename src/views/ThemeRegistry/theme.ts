@@ -2,7 +2,10 @@
 'use client';
 import { Roboto } from 'next/font/google';
 import { createTheme, Palette, Theme } from '@mui/material/styles';
-import { indigo, amber } from '@mui/material/colors';
+import { 
+  indigo, amber, 
+  yellow, blue, blueGrey
+} from '@mui/material/colors';
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -25,18 +28,22 @@ interface CustomTheme extends Theme {
 const theme = createTheme({
   palette: {
     primary: {
-      main: indigo[800],
-      contrastText: '#fbfbfb',
+      main: yellow[300],
+      contrastText: blue[900],
     },
     secondary: {
-      main: amber[700],
+      main: blueGrey[200],
       contrastText: '#fbfbfb',
     },
     background: {
-      default: '#f7f7f7', // Gray97
-      paper: '#f1f1f1', // White Smoke
+      default: indigo[900],
+      paper: blue[900],
     },
-    customBackground: '#343331', // Sinister Minister
+	text: {
+	  primary: '#F7F9F8',
+	  secondary: '#F7F9F8',
+	},
+    customBackground: yellow[300],
     lostLavender: '#8E7F8E',
     fadedLilac: '#92A3BD',
     bakeryBox: '#F7F9F8',
