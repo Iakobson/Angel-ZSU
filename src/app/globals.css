@@ -1,0 +1,23 @@
+/* @/app/globals.css */
+* {
+    scroll-behavior: smooth;
+  }
+html,
+body {
+  width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.videoInner {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
