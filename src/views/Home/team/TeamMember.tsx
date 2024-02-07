@@ -48,13 +48,13 @@ export default function TeamMember({ member }:MemberProps) {
         </Box>
         */}
         <Box sx={{ mb: 2 }}>
-          <Typography variant="h4" sx={{ fontSize: '1.4rem' }}>
+          <Typography variant="h4" sx={{ fontSize: '1.4rem', color:'background.paper' }}>
 		        {name}
 		      </Typography>
-          <Typography sx={{ mb:2, color:'text.secondary' }}>
+          <Typography sx={{ mb:2, color:'background.paper' }}>
 		        {professional}
 		      </Typography>
-          <Typography sx={{ mb:2, color:'text.secondary' }} variant="body2">
+          <Typography sx={{ mb:2, color:'background.paper' }} variant="body2">
             {description}
           </Typography>
           <Box sx={{ '& img': { height: 26 } }}>
