@@ -113,7 +113,7 @@ const AppHeader = () => {
                 <Button
                   sx={{ display: 'block',
                     my: 2, px: 2,
-                    color: 'white',
+                    color: 'background.paper',
                     '&:hover': { color: 'secondary.main' },
                   }}
                 >
