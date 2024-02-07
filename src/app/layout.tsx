@@ -1,4 +1,5 @@
 // @/app/layout.tsx
+import { Metadata } from 'next';
 import ThemeRegistry from '@/views/ThemeRegistry/ThemeRegistry';
 import './globals.css';
 import './react-slick.css';
@@ -10,11 +11,19 @@ import Box from '@mui/material/Box';
 import AppHeader from '@/views/RootLayout/AppHeader';
 import AppFooter from '@/views/RootLayout/AppFooter';
 
-export const metadata = {
+export const metadata:Metadata = {
   title: 'Янгол ЗСУ',
   description: 'Благодійний фонд Янгол Збройних Сил України.',
   keywords: 'благодійний фонд, Янгол ЗСУ, благодійність, Україна',
   author: 'SKindij',
+  openGraph: {
+      title: 'Test-Angel',
+      description: 'Тестовий сайт, що розробляється для благодійного фонду.',
+      url: 'https://test-fond-zsu.vercel.app/',
+      siteName: 'test-fond-zsu.vercel.app',
+      locale: 'uk',
+      type: 'website',
+    },
 };
 
 export default function RootLayout({ children }:{ children:React.ReactNode }) {
