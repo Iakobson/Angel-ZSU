@@ -15,7 +15,7 @@ export const metadata:Metadata = {
   title: 'Янгол ЗСУ',
   description: 'Благодійний фонд Янгол Збройних Сил України.',
   keywords: 'благодійний фонд, Янгол ЗСУ, благодійність, Україна',
-  authors: 'SKindij',
+  authors: [{ name: 'Josh', url: 'https://site.org' }],
   openGraph: {
     title: 'Test-Angel',
     description: 'Тестовий сайт, що розробляється для благодійного фонду.',
