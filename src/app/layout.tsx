@@ -15,15 +15,15 @@ export const metadata:Metadata = {
   title: 'Янгол ЗСУ',
   description: 'Благодійний фонд Янгол Збройних Сил України.',
   keywords: 'благодійний фонд, Янгол ЗСУ, благодійність, Україна',
-  author: 'SKindij',
+  authors: 'SKindij',
   openGraph: {
-      title: 'Test-Angel',
-      description: 'Тестовий сайт, що розробляється для благодійного фонду.',
-      url: 'https://test-fond-zsu.vercel.app/',
-      siteName: 'test-fond-zsu.vercel.app',
-      locale: 'uk',
-      type: 'website',
-    },
+    title: 'Test-Angel',
+    description: 'Тестовий сайт, що розробляється для благодійного фонду.',
+    url: 'https://test-fond-zsu.vercel.app/',
+    siteName: 'test-fond-zsu.vercel.app',
+    locale: 'uk',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }:{ children:React.ReactNode }) {
