@@ -40,8 +40,8 @@ const theme = createTheme({
       paper: yellow[100],
     },
     text: {
-	  primary: '#F7F9F8',
-	  secondary: '#F7F9F8',
+	  primary: blue[900],
+	  secondary: blue[700],
     },
     customBackground: blue[500],
     lostLavender: '#8E7F8E',
