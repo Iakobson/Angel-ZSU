@@ -28,22 +28,22 @@ interface CustomTheme extends Theme {
 const theme = createTheme({
   palette: {
     primary: {
-      main: yellow[300],
-      contrastText: blue[900],
-    },
-    secondary: {
-      main: blueGrey[200],
+      main: blue[900],
       contrastText: '#fbfbfb',
     },
+    secondary: {
+      main: yellow[500],
+      contrastText: blue[900],
+    },
     background: {
-      default: indigo[900],
-      paper: blue[900],
+      default: yellow[50],
+      paper: yellow[100],
     },
     text: {
 	  primary: '#F7F9F8',
 	  secondary: '#F7F9F8',
     },
-    customBackground: yellow[300],
+    customBackground: blue[500],
     lostLavender: '#8E7F8E',
     fadedLilac: '#92A3BD',
     bakeryBox: '#F7F9F8',
