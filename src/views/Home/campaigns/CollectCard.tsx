@@ -23,67 +23,67 @@ const CollectCard = ( { collectData }:CollectCardProps ) => {
   const fundraisingImagePath = getFundraisingImagePath(collectData.variation);
 
   return (
-    <Box sx={{ px: 2, pt: 1, pb: 5 }}>
-    <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 8 }}>
+    <Box sx={{ px: 2, pt: 1, pb: 4 }}>
+      <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 8 }}>
 	    {/* актульність та різновид збору */}
-	    <CardHeader
-        sx={{ color: collectData.isActual ? 'warning.main' : 'text.primary' }}
-        title={collectData.isActual ? 'Актуальний Збір' : 'Збір Закрито'}
-        subheader={collectData.variation}
-      />
-	  {/* картинка, що залежить від різновиду збору */}
-	  <CardMedia component="img"
-        sx={{ objectFit: 'cover', height: '100%', }}
-        image={fundraisingImagePath}
-        alt={collectData.variation}
-      />
-	  {/* Інформація щодо конкретного збору коштів */}
-      <CardContent>
-        <Typography variant="h5" color="info.main" mb={1}>
-          {collectData.purpose}
-        </Typography>
-        <Typography variant="body2" mb={1}>
-          {collectData.info}
-        </Typography>
-        <Typography variant="body1" mt={2}>
-          {collectData.value}
-        </Typography>
-      </CardContent>
-      <CardActions sx={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
-        {/* функціональні кнопки для відвідувача сайту */}
-        <Box sx={{ mb:2,
-		    display:'flex', gap:2, justifyContent:'center', 
-			flexDirection: { xs: 'column', sm: 'column', md: 'row' }
-		  }}
-		>
-          <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />} >
-            YouTube запиту
-          </Button>
-          <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />} >
-            YouTube звіту
-          </Button>
-        </Box>
-        <Box sx={{ display:'flex', justifyContent:'center', mb:2 }}>
-          <Link href={'/donate'} >
-            <Button variant="contained" size="small" color="success">
-              {collectData.isActual ? 'Задонатити на збір' : 'Підтримати команду'}
+	      <CardHeader
+          sx={{ color: collectData.isActual ? 'warning.main' : 'text.primary' }}
+          title={collectData.isActual ? 'Актуальний Збір' : 'Збір Закрито'}
+          subheader={collectData.variation}
+        />
+	      {/* картинка, що залежить від різновиду збору */}
+	      <CardMedia component="img"
+          sx={{ objectFit: 'cover', height: '100%', }}
+          image={fundraisingImagePath}
+          alt={collectData.variation}
+        />
+	      {/* Інформація щодо конкретного збору коштів */}
+        <CardContent>
+          <Typography variant="subtitle1" color="info.main" mb={1}>
+            {collectData.purpose}
+          </Typography>
+          <Typography variant="body2" mb={1}>
+            {collectData.info}
+          </Typography>
+          <Typography variant="subtitle2" color="primary.dark">
+            Ціль: {collectData.value} грн {collectData.isActual ? '' : 'досягнуто'}
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+          {/* функціональні кнопки для відвідувача сайту */}
+          <Box sx={{ mb:2,
+		        display:'flex', gap:1, justifyContent:'center',
+            flexDirection: { xs: 'column', sm: 'column', md: 'row' }
+		        }}
+          >
+            <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />} >
+              YouTube запиту
             </Button>
-          </Link>
-        </Box>
-        {/* функціональні кнопки для адміністратора сайту */}
-        <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', mb:2 }}>
-          <Button variant="contained" size="small" color="secondary" startIcon={<EditNoteRoundedIcon />} >
-            <Link href={`/admin/collect/${collectData.id}/edit`} >
-              Редагувати
+            <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />} >
+              YouTube звіту
+            </Button>
+          </Box>
+          <Box sx={{ display:'flex', justifyContent:'center', mb:2 }}>
+            <Link href={'/donate'} >
+              <Button variant="contained" size="medium" color="success">
+                {collectData.isActual ? 'Задонатити на збір' : 'Підтримати команду'}
+              </Button>
             </Link>
-          </Button>
-          <Button variant="contained" size="small" color="error" startIcon={<DeleteOutlineRoundedIcon />} >
+          </Box>
+          {/* функціональні кнопки для адміністратора сайту */}
+          <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', mb:2 }}>
+            <Button variant="contained" size="small" color="secondary" startIcon={<EditNoteRoundedIcon />} >
+              <Link href={`/admin/collect/${collectData.id}/edit`} >
+              Редагувати
+              </Link>
+            </Button>
+            <Button variant="contained" size="small" color="error" startIcon={<DeleteOutlineRoundedIcon />} >
             Видалити
-          </Button>
-        </Box>
-      </CardActions>
-    </Card>
-	</Box>
+            </Button>
+          </Box>
+        </CardActions>
+      </Card>
+    </Box>
   );
 };
 export default CollectCard;
