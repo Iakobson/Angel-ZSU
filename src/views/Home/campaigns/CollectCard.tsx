@@ -27,8 +27,8 @@ const CollectCard = ( { collectData }:CollectCardProps ) => {
       <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 8 }}>
 	    {/* актульність та різновид збору */}
 	      <CardHeader
-          sx={{ color: collectData.isActual ? 'warning.main' : 'text.primary' }}
-          title={collectData.isActual ? 'Актуальний Збір' : 'Збір Закрито'}
+          sx={{ color: collectData.is_actual ? 'warning.main' : 'text.primary' }}
+          title={collectData.is_actual ? 'Актуальний Збір' : 'Збір Закрито'}
           subheader={collectData.variation}
         />
 	      {/* картинка, що залежить від різновиду збору */}
@@ -46,7 +46,7 @@ const CollectCard = ( { collectData }:CollectCardProps ) => {
             {collectData.info}
           </Typography>
           <Typography variant="subtitle2" color="primary.dark">
-            Ціль: {collectData.value} грн {collectData.isActual ? '' : 'досягнуто'}
+            Ціль: {collectData.value} грн {collectData.is_actual ? '' : 'досягнуто'}
           </Typography>
         </CardContent>
         <CardActions sx={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
@@ -66,7 +66,7 @@ const CollectCard = ( { collectData }:CollectCardProps ) => {
           <Box sx={{ display:'flex', justifyContent:'center', mb:2 }}>
             <Link href={'/donate'} >
               <Button variant="contained" size="medium" color="success">
-                {collectData.isActual ? 'Задонатити на збір' : 'Підтримати команду'}
+                {collectData.is_actual ? 'Задонатити на збір' : 'Підтримати команду'}
               </Button>
             </Link>
           </Box>
