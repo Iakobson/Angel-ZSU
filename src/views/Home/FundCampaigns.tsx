@@ -1,22 +1,20 @@
 // @/views/Home/FundCampaigns.tsx
 'use client';
+import { FC } from 'react';
 import Slider, { Settings } from 'react-slick';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 // MUI components
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 // MUI icons
 import IconArrowBack from '@mui/icons-material/ArrowBack';
 import IconArrowForward from '@mui/icons-material/ArrowForward';
 // views content components
 import SectionHeader from '@/views/CommonUI/SectionHeader';
-import CollectCard from '@/views/Home/campaignsUI/CollectCard';
+import FundRaiserData from '@/views/Home/campaignsUI/RaiserData';
 import ToVideoBButtons from '@/views/Home/campaignsUI/ToVideoButtons';
-// info from data base
-import { fundRaisingData } from '@/services/get-data';
 
 interface SliderArrowArrow {
   onClick?:()=>void;
@@ -46,34 +44,32 @@ const FundCampaigns = () => {
   const { breakpoints } = useTheme();
   const matchMobileView = useMediaQuery(breakpoints.down('sm'));
   const matchTabletView = useMediaQuery(breakpoints.down('md'));
-  
+
   const sliderConfig:Settings = {
-    slidesToShow: matchMobileView ? 1 : (matchTabletView ? 2 : 3), 
-	slidesToScroll: 1, dots: false,
+    slidesToShow: matchMobileView ? 1 : (matchTabletView ? 2 : 3),
+    slidesToScroll: 1, dots: false,
     prevArrow: <SliderArrow type="prev" />, nextArrow: <SliderArrow type="next" />,
   };
-  
+
   return (
     <Box id="fund-campaigns" sx={{ pt:1, pb:{xs:4, md:6} }}>
 	  <Container maxWidth="lg">
-	
+
         <SectionHeader
           title="Актуальні грошові збори"
           description="Приєднуйтеся до наших благодійних ініціатив.
             Ваш внесок допомагає підтримати важливі проекти та надати допомогу тим, хто цього найбільше потребує."
         />
-	  
+
         {/* Actual cash fees slider*/}
-        <Slider {...sliderConfig}>         
-          {fundRaisingData.map((data, index) => (
-            <CollectCard key={index} collectData={data} />
-          ))}
+        <Slider {...sliderConfig}>
+          <FundRaiserData />
         </Slider>
 	  </Container>
-      
+
 	    {/* Buttons to go to pages with videos */}
 	    <ToVideoBButtons />
-      
+
     </Box>
   );
 };
