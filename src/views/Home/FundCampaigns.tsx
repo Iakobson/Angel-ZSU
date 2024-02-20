@@ -13,7 +13,6 @@ import IconArrowBack from '@mui/icons-material/ArrowBack';
 import IconArrowForward from '@mui/icons-material/ArrowForward';
 // views content components
 import SectionHeader from '@/views/CommonUI/SectionHeader';
-import FundRaiserData from '@/views/Home/campaignsUI/RaiserData';
 import ToVideoBButtons from '@/views/Home/campaignsUI/ToVideoButtons';
 
 interface SliderArrowArrow {
@@ -40,7 +39,8 @@ const SliderArrow:FC<SliderArrowArrow> = (props) => {
   );
 };
 
-const FundCampaigns = () => {
+// pass Server Component as a child or prop
+const FundCampaigns = ( {children}:{children:React.ReactNode} ) => {
   const { breakpoints } = useTheme();
   const matchMobileView = useMediaQuery(breakpoints.down('sm'));
   const matchTabletView = useMediaQuery(breakpoints.down('md'));
@@ -63,7 +63,7 @@ const FundCampaigns = () => {
 
         {/* Actual cash fees slider*/}
         <Slider {...sliderConfig}>
-          <FundRaiserData />
+          {children}
         </Slider>
 	  </Container>
 
