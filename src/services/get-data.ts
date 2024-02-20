@@ -9,12 +9,14 @@ import {IFundRaising} from '@/models/interfaces';
 /* ----- FUND CAMPAIGNS  ----- */
 export async function fetchAllFundRaiserData():Promise<IFundRaising[]> {
   // noStore(); this prevent response from being cached
+  // is equivalent to in fetch(..., {cache: 'no-store'})
   try {
     console.log('Fetching Fund Raising Info...');
     const raiserData = await sql<IFundRaising>`
       -- choose the data we need
       SELECT 
-        fri.id, frt.type AS variation, fri.is_actual,
+        fri.id, frt.type AS variation, 
+		fri.is_actual,
 		fri.purpose, fri.info, fri.value,
         fri.request_video_url,
         fri.report_video_url    
@@ -27,7 +29,9 @@ export async function fetchAllFundRaiserData():Promise<IFundRaising[]> {
       ORDER BY 
         fri.id DESC;
     `;
-    console.log('Raiser Data fetch completed.');
+	// checking form of received data
+	console.log('Raiser Data fetch completed.');
+	console.log(`Number of raws: ${raiserData.rows.length}`);
     console.log(raiserData.rows[0]);
 
     return raiserData.rows;
