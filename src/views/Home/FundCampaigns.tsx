@@ -17,7 +17,7 @@ const getAllFundRaiserData = cache(async () => {
 	return await fetchAllFundRaiserData();
 });
 
-const FundCampaigns = async () => {
+export default async function FundCampaigns() {
   const fundRaisers:IFundRaising[] = await getAllFundRaiserData();
   
   if (!fundRaisers || fundRaisers.length === 0) {
@@ -51,4 +51,3 @@ const FundCampaigns = async () => {
     </Box>
   );
 };
-export default FundCampaigns;
