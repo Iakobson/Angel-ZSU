@@ -1,4 +1,4 @@
-// @/views/Admin/campaignsUI/CollectInfo.tsx
+// @/views/Admin/CollectInfo.tsx
 import Link from 'next/link';
 // MUI components
 import Box from '@mui/material/Box';
@@ -6,30 +6,22 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // MUI icons
+import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 
 import { IFundRaising } from '@/models/interfaces';
-type CollectCardProps = { collectData:IFundRaising } ;
+type CollectInfoProps = { collectData:IFundRaising } ;
 
-import { getFundraisingImagePath } from '@/services/utils';
-
-const CollectInfo = ( { collectData }:CollectCardProps ) => {
-  const fundraisingImagePath = getFundraisingImagePath(collectData.variation);
+const CollectInfo = ( { collectData }:CollectInfoProps ) => {
 
   return (
-     <Box
-      sx={{
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center', mb: 5,
-      }}
-    >
-      <Paper
-        sx={{
-          padding: '20px', maxWidth: '1000px',
+      <Paper sx={{
+          p: 2, mb: 3, maxWidth: '1000px',
           textAlign: 'center', boxShadow: 3
         }}
       >
+	    
 	    {/* актульність та різновид збору */}
 		<Typography variant="subtitle1" color="info.main" mb={1}>
           {collectData.is_actual ? 'Актуальний Збір' : 'Збір Закрито'}
@@ -37,7 +29,7 @@ const CollectInfo = ( { collectData }:CollectCardProps ) => {
 		<Typography paragraph>
           {collectData.variation}
         </Typography>
-		
+
 	    {/* Інформація щодо конкретного збору коштів */}
         <Typography variant="subtitle1" color="info.main" mb={1}>
           {collectData.purpose}
@@ -49,12 +41,11 @@ const CollectInfo = ( { collectData }:CollectCardProps ) => {
           Ціль: {collectData.value} грн {collectData.is_actual ? '' : 'досягнуто'}
         </Typography>
 
+        <Typography variant="body1" my={1}>
+           Наявні відео посилання
+        </Typography>
         {/* функціональні кнопки для відвідувача сайту */}
-          <Box sx={{ mb:2,
-		        display:'flex', gap:1, justifyContent:'center',
-            flexDirection: { xs: 'column', sm: 'column', md: 'row' }
-		        }}
-          >
+          <Box sx={{ mb:2, display:'flex', gap:1, justifyContent:'center' }} >
             {/* conditional rendering for the button */}
             {collectData.requestVideoUrl && (
               <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />}>
@@ -71,7 +62,7 @@ const CollectInfo = ( { collectData }:CollectCardProps ) => {
 		  <Typography variant="body1" mb={1}>
               {collectData.is_actual ? 'Задонатити на Збір' : 'Підтримати Фонд'}
           </Typography>
-          <Box sx={{ display:'flex', flexDirection:'column', justifyContent:'center', mb:2 }}>		    
+          <Box sx={{ display:'flex', justifyContent:'center', mb:2 }}>		    
             {collectData.is_actual && (
 			<Link href={'/donate'} >
               <Button variant="contained" size="medium" color="success">
@@ -80,7 +71,7 @@ const CollectInfo = ( { collectData }:CollectCardProps ) => {
             </Link>
 			)}
 			<Link href={'/donate'} >
-              <Button sx={{ mt:1 }} variant="contained" size="medium" color="success">
+              <Button sx={{ ml: 1 }} variant="contained" size="medium" color="success">
                 за реквізитами
               </Button>
             </Link>			
@@ -97,9 +88,8 @@ const CollectInfo = ( { collectData }:CollectCardProps ) => {
               Видалити
             </Button>
           </Box>
-        </CardActions>
+		  
      </Paper>
-    </Box>
   );
 };
-export default CollectCard;
+export default CollectInfo;
