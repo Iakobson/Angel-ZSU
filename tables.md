@@ -49,6 +49,28 @@
   
   SELECT id, purpose, value FROM fund_raising_info;
 
+```
 
+
+#### Command to delete a table from a database
+```sql
+  DROP TABLE table_name;
+```
+
+- - -
+
+## Update Information
+
+```sql
+UPDATE fund_raising_info
+  SET 
+    is_actual = true,  -- зміна is_actual на true
+    type_id = 25,      -- нове значення type_id
+    purpose = 'Нова мета',  -- нова мета
+    info = 'Нова інформація',  -- нова інформація
+    value = 40000,     -- нове значення value
+    request_video_url = 'новий_урл'  -- новий URL для запиту відео
+    WHERE id = 7504;
 
 ```
+
