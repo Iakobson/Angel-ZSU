@@ -1,16 +1,11 @@
-// @/views/Home/campaignsUI/CollectInfo.tsx
+// @/views/Admin/campaignsUI/CollectInfo.tsx
 import Link from 'next/link';
 // MUI components
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // MUI icons
-import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 
@@ -23,66 +18,87 @@ const CollectInfo = ( { collectData }:CollectCardProps ) => {
   const fundraisingImagePath = getFundraisingImagePath(collectData.variation);
 
   return (
-    <Box sx={{ px: 2, pt: 1, pb: 4 }}>
-      <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 8 }}>
+     <Box
+      sx={{
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', mb: 5,
+      }}
+    >
+      <Paper
+        sx={{
+          padding: '20px', maxWidth: '1000px',
+          textAlign: 'center', boxShadow: 3
+        }}
+      >
 	    {/* актульність та різновид збору */}
-	      <CardHeader
-          sx={{ color: collectData.is_actual ? 'warning.main' : 'text.primary' }}
-          title={collectData.is_actual ? 'Актуальний Збір' : 'Збір Закрито'}
-          subheader={collectData.variation}
-        />
-	      {/* картинка, що залежить від різновиду збору */}
-	      <CardMedia component="img"
-          sx={{ objectFit: 'cover', height: '100%', }}
-          image={fundraisingImagePath}
-          alt={collectData.variation}
-        />
-	      {/* Інформація щодо конкретного збору коштів */}
-        <CardContent>
-          <Typography variant="subtitle1" color="info.main" mb={1}>
-            {collectData.purpose}
-          </Typography>
-          <Typography variant="body2" mb={1}>
-            {collectData.info}
-          </Typography>
-          <Typography variant="subtitle2" color="primary.dark">
-            Ціль: {collectData.value} грн {collectData.is_actual ? '' : 'досягнуто'}
-          </Typography>
-        </CardContent>
-        <CardActions sx={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
-          {/* функціональні кнопки для відвідувача сайту */}
+		<Typography variant="subtitle1" color="info.main" mb={1}>
+          {collectData.is_actual ? 'Актуальний Збір' : 'Збір Закрито'}
+        </Typography>
+		<Typography paragraph>
+          {collectData.variation}
+        </Typography>
+		
+	    {/* Інформація щодо конкретного збору коштів */}
+        <Typography variant="subtitle1" color="info.main" mb={1}>
+          {collectData.purpose}
+        </Typography>
+        <Typography variant="body2" mb={1}>
+          {collectData.info}
+        </Typography>
+        <Typography variant="subtitle2" color="primary.dark">
+          Ціль: {collectData.value} грн {collectData.is_actual ? '' : 'досягнуто'}
+        </Typography>
+
+        {/* функціональні кнопки для відвідувача сайту */}
           <Box sx={{ mb:2,
 		        display:'flex', gap:1, justifyContent:'center',
             flexDirection: { xs: 'column', sm: 'column', md: 'row' }
 		        }}
           >
-            <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />} >
-              YouTube запиту
-            </Button>
-            <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />} >
-              YouTube звіту
-            </Button>
+            {/* conditional rendering for the button */}
+            {collectData.requestVideoUrl && (
+              <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />}>
+                YouTube запиту
+              </Button>
+            )}
+            {/* conditional rendering for the button */}
+            {collectData.reportVideoUrl && (
+              <Button variant="outlined" size="small" startIcon={<PlayCircleOutlinedIcon />}>
+                YouTube звіту
+              </Button>
+            )}
           </Box>
-          <Box sx={{ display:'flex', justifyContent:'center', mb:2 }}>
-            <Link href={'/donate'} >
+		  <Typography variant="body1" mb={1}>
+              {collectData.is_actual ? 'Задонатити на Збір' : 'Підтримати Фонд'}
+          </Typography>
+          <Box sx={{ display:'flex', flexDirection:'column', justifyContent:'center', mb:2 }}>		    
+            {collectData.is_actual && (
+			<Link href={'/donate'} >
               <Button variant="contained" size="medium" color="success">
-                {collectData.is_actual ? 'Задонатити на збір' : 'Підтримати команду'}
+                на Mono банку
               </Button>
             </Link>
+			)}
+			<Link href={'/donate'} >
+              <Button sx={{ mt:1 }} variant="contained" size="medium" color="success">
+                за реквізитами
+              </Button>
+            </Link>			
           </Box>
+		  
           {/* функціональні кнопки для адміністратора сайту */}
           <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', mb:2 }}>
             <Button variant="contained" size="small" color="secondary" startIcon={<EditNoteRoundedIcon />} >
               <Link href={`/admin/collect/${collectData.id}/edit`} >
-              Редагувати
+                Редагувати
               </Link>
             </Button>
             <Button variant="contained" size="small" color="error" startIcon={<DeleteOutlineRoundedIcon />} >
-            Видалити
+              Видалити
             </Button>
           </Box>
         </CardActions>
-      </Card>
+     </Paper>
     </Box>
   );
 };
